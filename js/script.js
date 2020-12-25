@@ -2,10 +2,8 @@
 
 const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '0');
 
-alert(numberOfFilms);
-
 const personalMovieDB = {
-    count : {},
+    count : numberOfFilms,
     movies : {},
     actors : {},
     genres : [],
