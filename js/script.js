@@ -11,10 +11,16 @@ const personalMovieDB = {
 };
 
 for (let i = 0; i < 2; i++) {
-    const lastFilm = prompt('Last viewed movie',' '),
-          assesment = prompt('Your assesment?','5');
-
-    personalMovieDB.movies[lastFilm] = assesment;      
+    const lastFilm = prompt('Last viewed movie',''),
+          assesment = prompt('Your assesment?','');
+          console.log(assesment);
+    
+    if (lastFilm && lastFilm.length <= 50) {
+        if (assesment) {
+            personalMovieDB.movies[lastFilm] = assesment; 
+        } else {i--}
+    }else {i--}
+         
 }
 
 if (personalMovieDB.count < 10){
