@@ -15,13 +15,34 @@ for (let i = 0; i < 2; i++) {
           assesment = prompt('Your assesment?','');
           console.log(assesment);
     
-    if (lastFilm && lastFilm.length <= 50) {
-        if (assesment) {
-            personalMovieDB.movies[lastFilm] = assesment; 
-        } else {i--}
-    }else {i--}
+    if (lastFilm && lastFilm.length <= 50 && assesment) {
+        personalMovieDB.movies[lastFilm] = assesment;
+    }else {i--;}
          
 }
+
+// let i = 0;
+
+// while (i < 2){
+//     const lastFilm = prompt('Last viewed movie',''),
+//           assesment = prompt('Your assesment?','');
+//           console.log(assesment);
+    
+//     if (lastFilm && lastFilm.length <= 50 && assesment) {
+//         personalMovieDB.movies[lastFilm] = assesment;
+//     }else {i--;}
+//     i++;
+// }
+
+// do{ const lastFilm = prompt('Last viewed movie',''),
+//           assesment = prompt('Your assesment?','');
+//           console.log(assesment);
+    
+//     if (lastFilm && lastFilm.length <= 50 && assesment) {
+//         personalMovieDB.movies[lastFilm] = assesment;
+//     }else {i--;}
+//     i++;
+// } while (i<2);
 
 if (personalMovieDB.count < 10){
     alert('Просмотрено довольно мало фильмов');
