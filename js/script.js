@@ -10,10 +10,12 @@ const personalMovieDB = {
     privat : false
 };
 
-const lastFilm = prompt('Last viewed movie',' ');
-const assesment = prompt('Your assesment?','5');
+for (let i = 0; i < 2; i++) {
+    const lastFilm = prompt('Last viewed movie',' '),
+          assesment = prompt('Your assesment?','5');
 
-personalMovieDB.movies[lastFilm] = assesment;
+    personalMovieDB.movies[lastFilm] = assesment;      
+}
 
 if (personalMovieDB.count < 10){
     alert('Просмотрено довольно мало фильмов');
