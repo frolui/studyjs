@@ -10,6 +10,8 @@ function start() {
     }
 }
 
+start(); 
+
 const personalMovieDB = {
     count : numberOfFilms,
     movies : {},
@@ -18,25 +20,37 @@ const personalMovieDB = {
     privat : false
 };
 
-for (let i = 0; i < 2; i++) {
-    const lastFilm = prompt('Last viewed movie',''),
-          assesment = prompt('Your assesment?','');
-          console.log(assesment);
-    
-    if (lastFilm && lastFilm.length <= 50 && assesment) {
-        personalMovieDB.movies[lastFilm] = assesment;
-    }else {i--;}
-         
+function rememberMyFilms(){
+    for (let i = 0; i < 2; i++) {
+        const lastFilm = prompt('Last viewed movie',''),
+              assesment = prompt('Your assesment?','');
+              console.log(assesment);
+        
+        if (lastFilm && lastFilm.length <= 50 && assesment) {
+            personalMovieDB.movies[lastFilm] = assesment;
+        }else {i--;}
+             
+    }
 }
 
+rememberMyFilms();
 
-if (personalMovieDB.count < 10){
-    alert('Просмотрено довольно мало фильмов');
-}else if (personalMovieDB.count < 30){
-    alert('Вы классический зритель');
-}else if (personalMovieDB.count >= 30){
-    alert('Вы киноман');
-}else {alert('Произошла ошибка');}
+function detectPersonalLevel(){
+    if (personalMovieDB.count < 10){
+        alert('Просмотрено довольно мало фильмов');
+    }else if (personalMovieDB.count < 30){
+        alert('Вы классический зритель');
+    }else if (personalMovieDB.count >= 30){
+        alert('Вы киноман');
+    }else {alert('Произошла ошибка');}
+}
 
+detectPersonalLevel();
 
-console.log(personalMovieDB);
+function showMyDB(){
+    if (personalMovieDB.privat == false){
+        console.log(personalMovieDB);    
+    }
+}
+
+showMyDB();
