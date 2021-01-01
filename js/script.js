@@ -7,7 +7,7 @@ const personalMovieDB = {
     actors : {},
     genres : [],
     privat : false,
-    start: function() {
+    start() {
         let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
 
         while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)){
@@ -16,7 +16,7 @@ const personalMovieDB = {
 
         this.count = numberOfFilms;
     },
-    rememberMyFilms: function() {
+    rememberMyFilms(){
         for (let i = 0; i < 2; i++) {
             const lastFilm = prompt('Last viewed movie',''),
                   assesment = prompt('Your assesment?','');
@@ -29,7 +29,7 @@ const personalMovieDB = {
         }
 
     },
-    detectPersonalLevel: function() {
+    detectPersonalLevel() {
         if (this.count < 10){
             alert('Просмотрено довольно мало фильмов');
         }else if (this.count < 30){
@@ -38,19 +38,31 @@ const personalMovieDB = {
             alert('Вы киноман');
         }else {alert('Произошла ошибка');}
     },
-    writeYourGenres: function() {
+    writeYourGenres() {
+        let answer;
         for (let i = 1; i<4; i++){
-            this.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
+            answer = prompt(`Ваш любимый жанр под номером ${i}`);
+            if(answer !== '' & answer !== null){
+                this.genres.push(answer);
+            } else {
+                i--;
+            }
         }
+
+        let i = 1;
+        this.genres.forEach(element => {
+            console.log(`Любимый жанр ${i} - это ${element}`);
+            i++;
+        });
     },
-    showMyDB: function() {
+    showMyDB() {
         if (this.privat == false){
             console.log(this);    
         }
     },
-    taggleVisibleMyDB: function() {
-        this.privat === false ? this.privat = true : this.privat = false;
-    },
+    taggleVisibleMyDB() {
+        this.privat = !this.privat;
+    }
 };
 
 personalMovieDB.start();
@@ -60,4 +72,3 @@ personalMovieDB.writeYourGenres();
 personalMovieDB.taggleVisibleMyDB();
 personalMovieDB.showMyDB();
 
-console.log(personalMovieDB.privat);
