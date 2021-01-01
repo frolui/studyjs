@@ -37,25 +37,21 @@ const personalMovieDB = {
         }else if (personalMovieDB.count >= 30){
             alert('Вы киноман');
         }else {alert('Произошла ошибка');}
+    },
+    writeYourGenres: function(){
+        for (let i = 1; i<4; i++){
+            personalMovieDB.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
+        }
+    },
+    showMyDB: function(){
+        if (personalMovieDB.privat == false){
+            console.log(personalMovieDB);    
+        }
     }
 };
 
 personalMovieDB.start();
 personalMovieDB.rememberMyFilms();
 personalMovieDB.detectPersonalLevel();
-
-function writeYourGenres(){
-    for (let i = 1; i<4; i++){
-        personalMovieDB.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
-    }
-}
-
-writeYourGenres();
-
-function showMyDB(){
-    if (personalMovieDB.privat == false){
-        console.log(personalMovieDB);    
-    }
-}
-
-showMyDB();
+personalMovieDB.writeYourGenres();
+personalMovieDB.showMyDB();
